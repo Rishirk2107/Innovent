@@ -1,11 +1,11 @@
-import axios from 'axios';
+ import axios from 'axios';
 
-const API_URL = 'http://localhost:8000/api/chat';
+const API_URL = 'http://localhost:8000';  // Ensure this is the correct URL of your FastAPI server
 
 export const sendPrompt = async (prompt) => {
     try {
-        const response = await axios.post(API_URL, { prompt });
-        return response.data.response;
+        const response = await axios.post("http://localhost:8000/api/chat", {"userMessage": prompt });
+        return response.data.botResponse;
     } catch (error) {
         console.error('Error sending prompt to RAG LLM:', error);
         throw error;
