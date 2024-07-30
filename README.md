@@ -48,10 +48,12 @@
 3. Install the necessary js modules using npm
 ```bash
   npm install
+  after completion of  installation,
+  npm install axios 
 ```
 
 4. Run the website
 ```
-  npm start
+  npm run dev
 ```
 
