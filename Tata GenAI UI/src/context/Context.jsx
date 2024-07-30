@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+ import { createContext, useState } from "react";
 import { sendPrompt } from "../api";
 
 export const Context = createContext();
@@ -6,7 +6,7 @@ export const Context = createContext();
 const ContextProvider = (props) => {
     const [input, setInput] = useState("");
     const [recentPrompt, setRecentPrompt] = useState("");
-    const [prevPrompts, setPrevPromts] = useState([]);
+    const [prevPrompts, setPrevPrompts] = useState([]);
     const [showResult, setShowResult] = useState(false);
     const [loading, setLoading] = useState(false);
     const [resultData, setResultData] = useState("");
@@ -31,7 +31,7 @@ const ContextProvider = (props) => {
             response = await sendPrompt(prompt);
             setRecentPrompt(prompt);
         } else {
-            setPrevPromts(prev => [...prev, input]);
+            setPrevPrompts(prev => [...prev, input]);
             setRecentPrompt(input);
             response = await sendPrompt(input);
         }
@@ -57,7 +57,7 @@ const ContextProvider = (props) => {
 
     const contextValue = {
         prevPrompts,
-        setPrevPromts,
+        setPrevPrompts,
         onSent,
         setRecentPrompt,
         recentPrompt,
